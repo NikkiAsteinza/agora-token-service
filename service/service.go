@@ -22,8 +22,8 @@ type Service struct {
 	appCertificate string
 }
 
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+func enableCors(s *http.ResponseWriter) {
+	(*s).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 // Stop service safely, closing additional connections if needed.
