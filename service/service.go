@@ -13,10 +13,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func enableCors(w *http.ResponseWriter) {
-(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
-
 // Service is Ravelin backend service
 type Service struct {
 	Server         *http.Server
