@@ -11,6 +11,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+        "github.com/rs/cors"
 )
 
 // Service is Ravelin backend service
@@ -19,6 +20,10 @@ type Service struct {
 	Sigint         chan os.Signal
 	appID          string
 	appCertificate string
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 // Stop service safely, closing additional connections if needed.
