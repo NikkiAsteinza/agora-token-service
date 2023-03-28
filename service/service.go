@@ -75,7 +75,7 @@ func NewService() *Service {
 		appID:          appIDEnv,
 		appCertificate: appCertEnv,
 	}
-	enableCors(&w)
+
 	api := gin.Default()
 
 	api.GET("rtc/:channelName/:role/:tokenType/:rtcuid/", s.getRtcToken)
