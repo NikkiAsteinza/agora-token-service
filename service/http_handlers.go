@@ -10,7 +10,7 @@ import (
 )
 
 func (s *Service) getRtcToken(c *gin.Context) {
-	enableCors(&s)
+
 	log.Println("Generating RTC token")
 	// get param values
 	channelName, tokenType, uidStr, _, role, expireTimestamp, err := s.parseRtcParams(c)
@@ -120,12 +120,12 @@ func (s *Service) getRtcRtmToken(c *gin.Context) {
 
 }
 
-// func (s *Service) nocache() gin.HandlerFunc {
-// 	return func(c *gin.Context) {
-// 		// set headers
-// 		c.Header("Cache-Control", "private, no-cache, no-store, must-revalidate")
-// 		c.Header("Expires", "-1")
-// 		c.Header("Pragma", "no-cache")
-// 		c.Header("Access-Control-Allow-Origin", "*")
-// 	}
-// }
+func (s *Service) nocache() gin.HandlerFunc {
+ 	return func(c *gin.Context) {
+ 		// set headers
+ 		c.Header("Cache-Control", "private, no-cache, no-store, must-revalidate")
+ 		c.Header("Expires", "-1")
+ 		c.Header("Pragma", "no-cache")
+ 		c.Header("Access-Control-Allow-Origin", "*")
+ 	}
+ }
