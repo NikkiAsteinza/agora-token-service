@@ -9,7 +9,7 @@ import (
 )
 
 func (s *Service) generateRtcToken(channelName, uidStr, tokenType string, role rtctokenbuilder.Role, expireTimestamp uint32) (rtcToken string, err error) {
-
+	enableCors(&w)
 	if tokenType == "userAccount" {
 		log.Printf("Building Token with userAccount: %s\n", uidStr)
 		rtcToken, err = rtctokenbuilder.BuildTokenWithUserAccount(s.appID, s.appCertificate, channelName, uidStr, role, expireTimestamp)
