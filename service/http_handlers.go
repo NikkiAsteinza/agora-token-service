@@ -42,6 +42,8 @@ func (s *Service) getRtcToken(c *gin.Context) {
 }
 
 func (s *Service) getRtmToken(c *gin.Context) {
+
+	(*s).Header().Set("Access-Control-Allow-Origin", "*")
 	log.Println("Generating RTM token")
 	// get param values
 	uidStr, expireTimestamp, err := s.parseRtmParams(c)
