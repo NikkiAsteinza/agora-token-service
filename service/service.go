@@ -51,7 +51,6 @@ func (s *Service) Start() {
 
 // NewService returns a Service pointer with all configurations set
 func NewService() *Service {
-	enableCors(&w)
 	err := godotenv.Load()
 	if err != nil {
 		log.Println("Error loading .env file")
