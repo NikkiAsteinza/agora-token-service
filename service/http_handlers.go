@@ -42,11 +42,6 @@ func (s *Service) getRtcToken(c *gin.Context) {
 }
 
 
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
-
-
 func (s *Service) getRtmToken(c *gin.Context) {
 
 	log.Println("Generating RTM token")
