@@ -21,11 +21,6 @@ type Service struct {
 	appCertificate string
 }
 
-// Enable cost
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
-
 
 // Stop service safely, closing additional connections if needed.
 func (s *Service) Stop() {
