@@ -10,3 +10,7 @@ func main() {
 	go s.Stop()
 	s.Start()
 }
+
+func enableCors(w *http.ResponseWriter) {
+(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
