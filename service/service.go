@@ -22,7 +22,7 @@ type Service struct {
 	appCertificate string
 }
 
-func enableCors(s *http.ResponseWriter) {
+func enableCors(s *Services) {
 	(*s).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
