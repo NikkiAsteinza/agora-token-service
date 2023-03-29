@@ -43,17 +43,15 @@ func (s *Service) Stop() {
 // Start runs the service by listening to the specified port
 func (s *Service) Start() {
 	log.Println("Listening to port " + s.Server.Addr)
-    mux := http.NewServeMux()
-    mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/json")
-        w.Write([]byte("{\"hello\": \"world\"}"))
-    })
-
-    // cors.Default() setup the middleware with default options being
-    // all origins accepted with simple methods (GET, POST). See
-    // documentation below for more options.
-    handler := cors.Default().Handler(mux)
-    http.ListenAndServe(":8080", handler)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"*", "*"},
+		AllowCredentials: true,
+		// Enable Debugging for testing, consider disabling in production
+		Debug: true,
+	})
+	
+	// Insert the middleware
+	handler = c.Handler(handler)
 	if err := s.Server.ListenAndServe(); err != nil {
 		panic(err)
 	}
