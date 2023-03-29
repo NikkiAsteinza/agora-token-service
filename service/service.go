@@ -8,9 +8,10 @@ import (
 	"os"
 	"os/signal"
 	"time"
-	"github.com/rs/cors"
+	
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/rs/cors"
 	
 )
 
