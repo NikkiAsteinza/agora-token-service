@@ -13,7 +13,10 @@ func (s *Service) getRtcToken(c *gin.Context) {
 	log.Println("Generating RTC token")
 	// get param values
 	channelName, tokenType, uidStr, _, role, expireTimestamp, err := s.parseRtcParams(c)
-
+	c.Header("Cache-Control", "private, no-cache, no-store, must-revalidate")
+	c.Header("Expires", "-1")
+	c.Header("Pragma", "no-cache")
+	c.Header("Access-Control-Allow-Origin", "*")
 	if err != nil {
 		c.Error(err)
 		c.AbortWithStatusJSON(400, gin.H{
