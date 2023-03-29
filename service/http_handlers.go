@@ -10,7 +10,6 @@ import (
 )
 
 func (s *Service) getRtcToken(c *gin.Context) {
-	//s.nocache()
 	log.Println("Generating RTC token")
 	// get param values
 	channelName, tokenType, uidStr, _, role, expireTimestamp, err := s.parseRtcParams(c)
