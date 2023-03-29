@@ -78,6 +78,7 @@ func NewService() *Service {
 	}
 
 	api := gin.Default()
+	s.nocache()
 
 	api.GET("rtc/:channelName/:role/:tokenType/:rtcuid/", s.getRtcToken)
 	api.GET("rtm/:rtmuid/", s.getRtmToken)
