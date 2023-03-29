@@ -11,7 +11,7 @@ import (
 	
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/rs/cors"
+	//"github.com/rs/cors"
 
 )
 
@@ -43,15 +43,15 @@ func (s *Service) Stop() {
 // Start runs the service by listening to the specified port
 func (s *Service) Start() {
 	log.Println("Listening to port " + s.Server.Addr)
-	c := cors.New(cors.Options{
+	/*c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*", "*"},
 		AllowCredentials: true,
 		// Enable Debugging for testing, consider disabling in production
 		Debug: true,
 	})
-	
+	*/
 	// Insert the middleware
-	handler = c.Handler(handler)
+//	handler = c.Handler(handler)
 	if err := s.Server.ListenAndServe(); err != nil {
 		panic(err)
 	}
